@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 21:24:31 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/09 13:15:58 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/09 14:39:24 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define HOTRACE_H
 
 # define PAGES 256
-# define BUFFER_SIZE 128
 
 typedef struct s_dict
 {
