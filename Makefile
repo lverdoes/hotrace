@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/04/07 16:00:30 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/04/09 13:35:55 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/04/14 17:09:08 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,8 @@ NAME		=	hotrace
 
 CC			=	gcc
 FLAGS		=	-Wall -Wextra -Werror -O3 $(INCL)
-INCL		=	-I $(INCL_DIR) -I $(LIBFT_DIR)$(INCL_DIR)
+INCL		=	-I $(INCL_DIR)
 INCL_DIR	=	includes/
-LIBFT_DIR	=	libft/
-LIBFT		=	libft.a
 SRC_DIR		=	src/
 
 SRC_FILES	=	main.c parse.c keyword_find.c keyword_new.c
@@ -26,12 +24,8 @@ SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
 all: $(NAME)
 
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-	mv $(LIBFT_DIR)$(LIBFT) .
-
-$(NAME): $(LIBFT)
-	$(CC) $(FLAGS) $(SRC) -o $(NAME) $(LIBFT)
+$(NAME):
+	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 .PHONY: clean fclean re
 
@@ -40,8 +34,6 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
-	/bin/rm -f $(LIBFT)
 
 re: fclean all
 

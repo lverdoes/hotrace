@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 21:27:04 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/09 12:41:35 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/14 17:05:01 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdio.h>
 
 inline void	parse(t_dict *head, char *line)
 {
@@ -44,15 +45,9 @@ inline void	parse(t_dict *head, char *line)
 		{
 			d = keyword_find(head, line);
 			if (d && d->content)
-			{
-				write(STDOUT_FILENO, d->content, strlen(d->content));
-				write(STDOUT_FILENO, "\n", 1);
-			}
+				printf("%s\n", d->content);
 			else
-			{
-				write(STDOUT_FILENO, line, strlen(line));
-				write(STDOUT_FILENO, ": Not found\n", 12);
-			}
+				printf("%s: Not found\n", line);
 		}
 	}
 }
